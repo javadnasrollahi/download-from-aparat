@@ -46,7 +46,22 @@ func main() {
 	// list of data-uid
 	// https://www.aparat.com/v/7dmXg =====>  7dmXg
 	listToken := []string{
-		"7dmXg", // https://www.aparat.com/v/7dmXg =====>  7dmXg
+		"stm53d5",
+		"jyd033q",
+		"alk10g8",
+		"wbljns8",
+		"pyo8h24",
+		"fpk58s8",
+		"elr27r7",
+		"agn73az",
+		"okcqvyu",
+		"qhh7613",
+		"pmgl8zo",
+		"ycz99o1",
+		"bcb3feh",
+		"gneff1y",
+		"tcac9xa",
+		"rkd5e1m",
 	}
 
 	for i := range listToken {
@@ -64,10 +79,11 @@ func main() {
 			continue
 		}
 		//
+		quality := 4 // کیفیت 1 یعنی 1080 2 یعنی 720 3یعنی 480
 		if len(item.Data.Attributes.File_link_all) > 0 && len(item.Data.Attributes.File_link_all[len(item.Data.Attributes.File_link_all)-1].Urls) > 0 {
 			l := len(item.Data.Attributes.File_link_all)
 			u := len(item.Data.Attributes.File_link_all[len(item.Data.Attributes.File_link_all)-1].Urls)
-			url := item.Data.Attributes.File_link_all[l-1].Urls[u-1]
+			url := item.Data.Attributes.File_link_all[l-quality].Urls[u-1]
 			if len(url) > 0 {
 				// It downloads the best quality
 				download(listToken[i], url)
